@@ -38,6 +38,7 @@ dca = ConnectednessApproach(Y,
                               FrequencyConnectedness=list(partition=partition, generalized=TRUE)
                             ))
 print(dca$TABLE)
+
 # CONNECTEDNESS PLOTS
 date = index(Y)
 par(mfrow=c(1,1))
