@@ -9,7 +9,8 @@ library("ConnectednessApproach")
 data("acg2020")
 
 # DYNAMIC CONNECTEDNESS
-dca = ConnectednessApproach(acg2020, model="TVP-VAR",
+dca = ConnectednessApproach(acg2020, 
+                            model="TVP-VAR",
                             connectedness="Time",
                             nlag=1,
                             nfore=12,
