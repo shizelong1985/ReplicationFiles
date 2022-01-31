@@ -37,15 +37,15 @@ dca = ConnectednessApproach(Y,
                             Connectedness_config = list(
                               FrequencyConnectedness=list(partition=partition, generalized=TRUE)
                             ))
-
+print(dca$TABLE)
 # CONNECTEDNESS PLOTS
 date = index(Y)
 par(mfrow=c(1,1))
-plot(date, as.numeric(dca$TCI[,1,1]),type="l",las=1,ylim=c(0,80),col="blue",xlab="",ylab="")
+plot(date, as.numeric(dca$TCI[,1,1]),type="l",las=1,ylim=c(0,80),col="blue",xlab="",ylab="", xaxs="i")
 lines(date, as.numeric(dca$TCI[,2,1]),type="l")
 
-par(mfrow=c(3,2))
+par(mfrow = c(ceiling(k/2), 2), oma = c(1,1,0,0) + 0.1, mar = c(1,0.5,0.5,0) + 1, mgp=c(0, .65, 0))
 for (i in 1:k) {
-  plot(date, as.numeric(dca$NET[,i,1,1]),type="l",las=1,col="blue",xlab="",ylab="",main=NAMES[i]); abline(h=0)
-  lines(date, as.numeric(dca$NET[,i,2,1]),col="red")
+  plot(date, as.numeric(dca$NET[,i,1,1]),type="l",las=1,col="blue",xlab="",ylab="",main=NAMES[i], xaxs="i"); abline(h=0)
+  lines(date, as.numeric(dca$NET[,i,2,1]))
 }
