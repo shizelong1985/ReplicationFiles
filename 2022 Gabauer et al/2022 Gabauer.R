@@ -29,7 +29,6 @@ legend("topleft", NAMES, fill=1:k, bty="n")
 Y = DATA[-1,]
 for (i in 1:k) {
   Y[,i] = 100*diff(log(DATA[,i]))
-#  Y[,i] = 100*c(x[,2]-x[,1])/x[,1]
 }
 
 split = 2
