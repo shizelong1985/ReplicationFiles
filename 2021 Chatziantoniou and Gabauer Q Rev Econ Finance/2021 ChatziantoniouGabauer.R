@@ -4,18 +4,13 @@
 ### THE QUARTERLY REVIEW OF ECONOMICS AND FINANCE
 ### replicated by David Gabauer
 
-library("zoo")
-library("openxlsx")
 library("parallel")
 library("ConnectednessApproach")
 options(mc.cores=detectCores())
 
 # DATA PREPARATION
-RAW = read.xlsx("./data.xlsx", detectDates=TRUE)
-RAW = na.omit(RAW)
-DATE = as.Date(RAW[,1])
-DATA = RAW[,-1]
-DATA = zoo(DATA, order.by=DATE)
+data("cg2021")
+DATA = cg2021
 k = ncol(DATA)
 NAMES = colnames(DATA)
 
