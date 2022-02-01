@@ -1,6 +1,6 @@
 
 ### The joint spillover index
-### LASTRAPES, W.D., & WIESEN, T.F.
+### Lastrapes, WD., & Wiesen, TF. (2021)
 ### Economic Modelling
 ### replicated by David Gabauer
 
@@ -22,7 +22,7 @@ dca = ConnectednessApproach(lw2021,
 print(dca$TABLE)
 
 # CONNECTEDNESS PLOTS
-plot_tci(dca, save=TRUE)
-plot_net(dca, save=TRUE)
-plot_to(dca, save=TRUE)
-plot_from(dca, save=TRUE)
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
