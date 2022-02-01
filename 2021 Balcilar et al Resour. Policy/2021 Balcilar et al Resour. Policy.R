@@ -1,11 +1,14 @@
 
-### CRUDE OIL FUTURES CONTRACTS AND COMMODITY MARKETS: 
-### NEW EVIDENCE FROM A TVP-VAR EXTENDED JOINT CONNECTEDNESS APPROACH
-### BALCILAR, M., GABAUER, D., & ZAGHUM, U. (2021)
-### RESOURCES POLICY
+### Crude Oil futures contracts and commodity markets: 
+### New evidence from a TVP-VAR extended joint connectedness approach
+### Balcilar, M., Gabauer, D., & Umar, Z. (2021)
+### Resources Policy
 ### replicated by David Gabauer
 
+rm(list=c())
+library("parallel")
 library("ConnectednessApproach")
+options(mc.cores=detectCores())
 data("bgu2021")
 
 # DYNAMIC CONNECTEDNESS
@@ -18,8 +21,7 @@ dca = ConnectednessApproach(bgu2021,
 print(dca$TABLE)
 
 # CONNECTEDNESS PLOTS
-plot_tci(dca, save=TRUE)
-plot_net(dca, save=TRUE)
-plot_to(dca, save=TRUE)
-plot_from(dca, save=TRUE)
-plot_npso(dca, save=TRUE)
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
