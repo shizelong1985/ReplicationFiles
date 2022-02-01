@@ -3,6 +3,7 @@
 ### CHATZIANTONIOU, I., GABAUER, D. & GUPTA, R.
 ### replicated by David Gabauer
 
+rm(list=ls())
 library("zoo")
 library("openxlsx")
 library("parallel")
@@ -35,18 +36,15 @@ dca = ConnectednessApproach(Y,
                             window.size=200,
                             VAR_config=list(TVPVAR=list(kappa1=0.99, kappa2=0.99, prior="BayesPrior")),
                             Connectedness_config = list(
-                              FrequencyConnectedness=list(partition=partition, generalized=TRUE)
+                              FrequencyConnectedness=list(partition=partition, generalized=TRUE, scenario="ABS")
                             ))
 print(dca$TABLE)
 
 # CONNECTEDNESS PLOTS
-date = index(Y)
-par(mfrow=c(1,1))
-plot(date, as.numeric(dca$TCI[,1,1]),type="l",las=1,ylim=c(0,80),col="blue",xlab="",ylab="", xaxs="i")
-lines(date, as.numeric(dca$TCI[,2,1]),type="l")
-
-par(mfrow = c(ceiling(k/2), 2), oma = c(1,1,0,0) + 0.1, mar = c(1,0.5,0.5,0) + 1, mgp=c(0, .65, 0))
-for (i in 1:k) {
-  plot(date, as.numeric(dca$NET[,i,1,1]),type="l",las=1,col="blue",xlab="",ylab="",main=NAMES[i], xaxs="i"); abline(h=0)
-  lines(date, as.numeric(dca$NET[,i,2,1]))
-}
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
+plot_npdc(dca)
+plot_npso(dca)
+plot_pci(dca)
