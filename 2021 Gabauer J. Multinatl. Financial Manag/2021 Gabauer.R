@@ -1,9 +1,10 @@
 
 ### Dynamic measures of asymmetric & pairwise connectedness within an optimal currency area: Evidence from the ERM I system
-### GABAUER, D.
-### JOURNAL OF MULTINATIONAL FINANCIAL MANAGEMENT
+### Gabauer, D.
+### Journal of Multinational Financial Management
 ### replicated by David Gabauer
 
+rm(list=ls())
 library("zoo")
 library("openxlsx")
 library("parallel")
@@ -44,12 +45,12 @@ dca = ConnectednessApproach(Y,
 print(dca$TABLE)
 
 # CONNECTEDNESS PLOTS
-plot_tci(dca, save=TRUE)
-plot_net(dca, save=TRUE)
-plot_to(dca, save=TRUE)
-plot_from(dca, save=TRUE)
-plot_npso(dca, save=TRUE)
-plot_pci(dca, save=TRUE)
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
+plot_npso(dca)
+plot_pci(dca)
 
 # DYNAMIC VOLATILITY CONNECTEDNESS
 dca = ConnectednessApproach(abs(Y), 
@@ -62,9 +63,9 @@ dca = ConnectednessApproach(abs(Y),
 print(dca$TABLE)
 
 # CONNECTEDNESS PLOTS
-plot_tci(dca, save=TRUE)
-plot_net(dca, save=TRUE)
-plot_to(dca, save=TRUE)
-plot_from(dca, save=TRUE)
-plot_npso(dca, save=TRUE)
-plot_pci(dca, save=TRUE)
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
+plot_npso(dca)
+plot_pci(dca)
