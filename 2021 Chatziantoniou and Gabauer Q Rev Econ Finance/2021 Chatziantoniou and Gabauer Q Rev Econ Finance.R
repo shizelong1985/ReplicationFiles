@@ -4,7 +4,7 @@
 ### The Quarterly Review of Economics and Finance
 ### replicated by David Gabauer
 
-rm(list=c())
+rm(list=ls())
 library("parallel")
 library("ConnectednessApproach")
 options(mc.cores=detectCores())
