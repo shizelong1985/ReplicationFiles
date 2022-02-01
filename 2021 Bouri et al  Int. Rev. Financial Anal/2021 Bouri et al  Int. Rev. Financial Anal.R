@@ -1,12 +1,15 @@
 
-### RETURN CONNECTEDNESS ACROSS ASSET CLASSES AROUND THE COVID-19 OUTBREAK
-### BOURI, E., CEPNI, O., GABAUER, D., & GUPTA, R.
-### INTERNATIONAL REVIEW OF FINANCIAL ANALYIS
+### Return connectedness across asset classes around the COVID-19 outbreak
+### Bouri, E., Cepni, O., Gabauer, D., & Gupta, R. (2021)
+### International Review of Financial Analysis
 ### replicated by David Gabauer
 
+rm(list=c())
 library("zoo")
 library("openxlsx")
+library("parallel")
 library("ConnectednessApproach")
+options(mc.cores=detectCores())
 
 # DATA PREPARATION
 RAW = read.xlsx("./data.xlsx", detectDates=TRUE)
@@ -25,9 +28,9 @@ for (i in 1:k) {
 
 par(mfcol = c(k, 1), oma = c(1,1,0,0) + 0.1, mar = c(1,0.5,0.5,0) + 1, mgp=c(0, .65, 0))
 for (i in 1:k) {
-   plot(date,Y[,i],type="l",las=1,xlab="",ylab="",main=NAMES[i],ylim=c(-max(abs(Y[,i])),max(abs(Y[,i]))),col="steelblue4",xaxs="i")
+   plot(Y[,i],type="l",las=1,xlab="",ylab="",main=NAMES[i],ylim=c(-max(abs(Y[,i])),max(abs(Y[,i]))),col="steelblue4",xaxs="i")
    grid(NA,NULL)
-   lines(date,Y[,i],col="steelblue4")
+   lines(Y[,i],col="steelblue4")
    box()
 }
 
@@ -38,13 +41,13 @@ dca = ConnectednessApproach(Y,
                             nlag=1,
                             nfore=20,
                             VAR_config=list(TVPVAR=list(kappa1=0.99, kappa2=0.99, prior="MinnesotaPrior", gamma=0.1)))
-ind = which(date=="2020-01-13")
-ConnectednessTable(dca$FEVD[,,c(1:ind)])$TABLE
-ConnectednessTable(dca$FEVD[,,-c(1:ind)])$TABLE
+ind = which(index(Y)=="2020-01-13")
+ConnectednessTable(dca$CT[,,c(1:ind)])$TABLE
+ConnectednessTable(dca$CT[,,-c(1:ind)])$TABLE
 
 # CONNECTEDNESS PLOTS
-plot_tci(dca, save=TRUE)
-plot_net(dca, save=TRUE)
-plot_to(dca, save=TRUE)
-plot_from(dca, save=TRUE)
-plot_npso(dca, save=TRUE)
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
+plot_npso(dca)
