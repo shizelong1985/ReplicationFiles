@@ -4,6 +4,7 @@
 ### Economic Journal
 ### by David Gabauer
 
+rm(list=c())
 library("parallel")
 library("ConnectednessApproach")
 options(mc.cores=detectCores())
