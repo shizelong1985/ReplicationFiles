@@ -1,11 +1,13 @@
 
-### ANTONAKAKIS, N., CHATZIANTONIOU, I., AND GABAUER, D. (2020)
-### REFINED MEASURES OF DYNAMIC CONNECTEDNESS BASED ON TIME-VARYING PARAMETERS VECTOR AUTREGRESSIONS
+### Refined measures of dynamic connectedness based on time-varying parameter vector autoregressions
+### Antonakakis, N., Chatziantoniou, I., & Gabauer, D. (2020)
 ### Journal of Risk and Financial Management
-### by David Gabauer (https://sites.google.com/view/davidgabauer/contact-details)
+### by David Gabauer
 
-options(mc.cores=detectCores())
+rm(list=c())
+library("parallel")
 library("ConnectednessApproach")
+options(mc.cores=detectCores())
 data("acg2020")
 
 # DYNAMIC CONNECTEDNESS
@@ -18,8 +20,8 @@ dca = ConnectednessApproach(acg2020,
 print(dca$TABLE)
 
 # CONNECTEDNESS PLOTS
-plot_tci(dca, save=TRUE)
-plot_net(dca, save=TRUE)
-plot_to(dca, save=TRUE)
-plot_from(dca, save=TRUE)
-plot_npso(dca, save=TRUE)
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
+plot_npso(dca)
