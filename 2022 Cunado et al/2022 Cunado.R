@@ -3,6 +3,7 @@
 ### CUNADO, J., CHATZIANTONIOU, GABAUER, D., GARCIA DE PEREZ, F., & HARDIK, M.
 ### replicated by David Gabauer
 
+rm(list=ls())
 library("zoo")
 library("parallel")
 library("ConnectednessApproach")
@@ -24,7 +25,7 @@ print(SummaryStatistics(Y))
 
 # DYNAMIC RETURN CONNECTEDNESS
 tau = 0.50
-dca = ConnectednessApproach(Y, 
+dca = ConnectednessApproach(Y,
                             model="QVAR",
                             connectedness="Extended Joint",
                             nlag=1,
@@ -34,9 +35,9 @@ dca = ConnectednessApproach(Y,
 print(dca$TABLE)
 
 # CONNECTEDNESS PLOTS
-plot_tci(dca, save=TRUE)
-plot_net(dca, save=TRUE)
-plot_to(dca, save=TRUE)
-plot_from(dca, save=TRUE)
-plot_npso(dca, save=TRUE)
-plot_pci(dca, save=TRUE)
+plot_tci(dca)
+plot_net(dca)
+plot_to(dca)
+plot_from(dca)
+plot_npso(dca)
+plot_pci(dca)
