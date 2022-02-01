@@ -1,7 +1,7 @@
 
 ### On The Transmission Mechanism Of Country-Specific And International Economic Uncertainty Spillovers:
 ### Evidence From A TVP-VAR Connectedness Decomposition Approach
-### Gabauer, D., & Gupta, R. (2019)
+### Gabauer, D., & Gupta, R. (2018)
 ### Economics Letters
 ### replicated by David Gabauer
 
