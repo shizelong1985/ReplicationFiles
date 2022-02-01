@@ -4,7 +4,7 @@
 ### International Journal of Forecasting
 ### replicated by David Gabauer
 
-rm(list=c())
+rm(list=ls())
 library("parallel")
 library("ConnectednessApproach")
 options(mc.cores=detectCores())
